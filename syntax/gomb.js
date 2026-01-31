@@ -11,15 +11,16 @@ class Gomb {
         this.button.innerText = this.muveletString;
         document.body.appendChild(this.button);
 
-        this.button.addEventListener('click', this.buttonHandler.bind(this));
+        this.button.addEventListener('click', this.#calculate(this.input1, this.input2, this.eredmenyDiv));
     }
 
-    buttonHandler() {
-        const inValue1 = Number(this.input1.value);
-        const inValue2 = Number(this.input2.value);
-        const { result } = muvelet(inValue1, inValue2, muveletLetrehoz(this.muveletString));
-        this.eredmenyDiv.innerText = result;
+    #calculate(input1, input2, eredmenyDiv) {
+        return () => {
+            const inValue1 = Number(input1.value);
+            const inValue2 = Number(input2.value);
+            const { result } = muvelet(inValue1, inValue2, muveletLetrehoz(this.muveletString));
+            eredmenyDiv.innerText = result;
+        }
     }
 }
-
 export { Gomb };
