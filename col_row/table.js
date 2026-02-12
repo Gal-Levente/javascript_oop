@@ -38,18 +38,27 @@ class Table {
 
         /** @param {ColspanType | RowspanType} element */
         this.#manager.addCallback = (element) => {
+            const tr2 = document.createElement('tr');
             const tr = document.createElement('tr');
             for (const key in element) {
+                const td2 = document.createElement('td');
                 const td = document.createElement('td');
                 td.innerText = element[key];
-                
                 if (key === 'szerelme1' && !element.szerelme2) {
                     td.colSpan = 2;
                 }
-
+                if(key === 'szerzo2' || key === 'mu2') {
+                    td2.innerText = element[key];
+                    tr2.appendChild(td2);
+                    continue;
+                }
+                if(element.mu2 && element.szerzo2 && key === 'nemzet') {
+                    td.rowSpan = 2;
+                }
                 tr.appendChild(td);
             }
             this.#tbody.appendChild(tr);
+            this.#tbody.appendChild(tr2);
         };
     }
 }
