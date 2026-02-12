@@ -26,6 +26,7 @@ class Table {
             const th = document.createElement('th');
             th.innerText = header.name;
             if(header.colspan) th.colSpan = header.colspan;
+            if(header.rowspan) th.rowSpan = header.rowspan;
             trHeader.appendChild(th);
         }
 
@@ -41,6 +42,11 @@ class Table {
             for (const key in element) {
                 const td = document.createElement('td');
                 td.innerText = element[key];
+                
+                if (key === 'szerelme1' && !element.szerelme2) {
+                    td.colSpan = 2;
+                }
+
                 tr.appendChild(td);
             }
             this.#tbody.appendChild(tr);
