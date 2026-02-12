@@ -21,8 +21,8 @@ class Manager {
         if(this.#addCallback) this.#addCallback(element);
     }
     /**@param {CallbackType} */
-    set addCallback(element) {
-        this.#addCallback = element;
+    set addCallback(callback) {
+        this.#addCallback = callback;
     }
 }
 

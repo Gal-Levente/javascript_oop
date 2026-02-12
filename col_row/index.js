@@ -6,11 +6,12 @@ import data from './data.json' with {type:'json'}
 import { Manager } from './manager.js';
 import { Table } from './table.js';
 
+/** @type {Manager} */
 const manager = new Manager();
-manager.addCallback = (element) => console.log(element);
 
-for(const a of data.colspanDataArr) {
-    manager.addElement(a);
-}
-
+/** @type {Table} */
 new Table(data.colspanHeaderArray, manager);
+
+for(const element of data.colspanDataArr) {
+    manager.addElement(element);
+}
