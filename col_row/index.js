@@ -9,7 +9,7 @@ import { Table } from './table.js';
 
 // COLSPAN
 /** @type {Manager} */
-const manager = new Manager();
+const colSpanManager = new Manager();
 
 const renderColspanBody = (tbody, elem) => {
     const tr = document.createElement('tr');
@@ -37,17 +37,17 @@ const renderColspanBody = (tbody, elem) => {
 }
 
 /** @type {Table} */
-const table_col = new Table(data.colspanHeaderArray, manager);
+const table_col = new Table(data.colspanHeaderArray, colSpanManager);
 table_col.setAppendRow(renderColspanBody);
 for(const element of data.colspanDataArr) {
-    manager.addElement(element);
+    colSpanManager.addElement(element);
 }
 
-const colForm = new FormController(data.colspanFormFieldList, manager);
+new FormController(data.colspanFormFieldList, colSpanManager);
 
 // ROWSPAN
 /** @type {Manager} */
-const manager2 = new Manager();
+const rowSanManager = new Manager();
 
 const renderRowspanBody = (tbody, elem) => {
     const tr = document.createElement('tr');
@@ -80,8 +80,10 @@ const renderRowspanBody = (tbody, elem) => {
 }
 
 /** @type {Table} */
-const table_row = new Table(data.rowspanHeaderArray, manager2);
+const table_row = new Table(data.rowspanHeaderArray, rowSanManager);
 table_row.setAppendRow(renderRowspanBody);
 for(const element of data.rowspanTableArray) {
-    manager2.addElement(element);
+    rowSanManager.addElement(element);
 }
+
+new FormController(data.rowspanFormFieldList, rowSanManager);

@@ -29,23 +29,34 @@ class FormController {
             e.preventDefault();
             // létrehozunk egy változót, elkérjük a beviteli mezők alapján, utána hozzadjuk a managerhez
             const elem = this.#createElem();
-            this.#manager.addElement(elem)
+            if(elem) {
+                this.#manager.addElement(elem)
+                e.target.reset();
+            }            
         });
     }
     /**
-     * @returns {ColspanType | RowspanType}
+     * @returns {ColspanType | RowspanType | null}
      */
     #createElem() {
         let result = {};
+        let valid = true
         for(const formInput of this.#formFieldElemList) {
-            result[formInput.name] = formInput.value;
-
+            if(formInput.validate()){
+                result[formInput.name] = formInput.value;
+            } else {
+                valid = false;
+            }
             /**
              * result: {neve:input tartalma, kor:input tartalma, ...}
              */
         }
-
-        return result;
+        if(valid) {
+            return result;
+        } else {
+            return null;
+        }
+        
     }
 }
 
@@ -56,6 +67,8 @@ class FormField {
     #name;
     /**@type {HTMLDivElement} */
     #errorDiv
+    /**@type {boolean} */
+    #required
     get value() {
         return this.#input.value ? this.#input.value : undefined;
     }
@@ -91,6 +104,22 @@ class FormField {
         errorDiv.classList.add('error');
         div.appendChild(errorDiv);
         this.#errorDiv = errorDiv;
+        this.#required = required;
+
+    }
+
+    /**
+     * @returns {boolean}
+     */
+    validate() {
+        let result = true;
+        if(this.#required && !this.value) {
+            this.#errorDiv.innerText = "Kötelező";
+            result = false;
+        } else {
+            this.#errorDiv.innerText = "";
+        }
+        return result;
     }
 }
 
