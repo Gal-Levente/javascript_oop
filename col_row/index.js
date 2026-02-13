@@ -3,6 +3,7 @@
  */
 
 import data from './data.json' with {type:'json'}
+import { FormController } from './form.js';
 import { Manager } from './manager.js';
 import { Table } from './table.js';
 
@@ -41,6 +42,8 @@ table_col.setAppendRow(renderColspanBody);
 for(const element of data.colspanDataArr) {
     manager.addElement(element);
 }
+
+const colForm = new FormController(data.colspanFormFieldList, manager);
 
 // ROWSPAN
 /** @type {Manager} */
