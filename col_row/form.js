@@ -1,5 +1,5 @@
 /**
- * @import {FormFieldType, HeaderArrayType, ColspanType, RowspanType} from "./functions.js"
+ * @import {FormFieldType, HeaderType, ColspanType, RowspanType} from "./functions.js"
  */
 
 class FormController {
@@ -7,6 +7,8 @@ class FormController {
     #manager;
     /**@type {FormField[]} */
     #formFieldElemList;
+    /**@type {HTMLFormElement} */
+    #form;
     /**
      * 
      * @param {FormFieldType[]} formFields 
@@ -15,6 +17,7 @@ class FormController {
     constructor(formFields, manager) {
         this.#manager = manager;
         const form = document.createElement('form');
+        this.#form = form;
         document.body.appendChild(form);
         this.#formFieldElemList = [];
         for(const formField of formFields) {
