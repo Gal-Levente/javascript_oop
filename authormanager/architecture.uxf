@@ -8,6 +8,7 @@
 +appendTo(value: HTMLElement): void
 +set activateCallback(value: ActivateCallback)
 +get div(): HTMLDivElement
++get id(): string
 +activate(id: string): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>176</x><y>112</y><w>152</w><h>40</h></coordinates><panel_attributes>A div felel az adott komponens
 tartalmának megjelenítéséért
 bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>696</x><y>136</y><w>80</w><h>40</h></coordinates><panel_attributes>ActivateCallback
@@ -75,7 +76,8 @@ m1=0..n</panel_attributes><additional_attributes>190;10;10;10;10;130</additional
 +get id(): string
 +get name(): string
 +get work(): string
-+get concept(): string</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>280</x><y>640</y><w>208</w><h>24</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;240;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>400</x><y>464</y><w>136</w><h>48</h></coordinates><panel_attributes>TableCallback
++get concept(): string</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>280</x><y>632</y><w>208</w><h>32</h></coordinates><panel_attributes>lt=&lt;-
+0..*</panel_attributes><additional_attributes>10;20;240;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>400</x><y>464</y><w>136</w><h>48</h></coordinates><panel_attributes>TableCallback
 --
 (authorList: Author[]) void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>472</x><y>504</y><w>152</w><h>104</h></coordinates><panel_attributes>lt=&lt;-
 Meghívja a getAllElementben</panel_attributes><additional_attributes>10;10;10;110</additional_attributes></element><element><id>UMLClass</id><coordinates><x>584</x><y>488</y><w>144</w><h>48</h></coordinates><panel_attributes>AddElementResultCallback
