@@ -8,7 +8,7 @@ class Navbar extends ViewElement {
         super('navbar');
         this.div.addEventListener('change', (e) => {
             const selectedRadioButton = e.target.value;
-            // az activate meghívása
+            this.activate(selectedRadioButton)
         })
         this.#viewElementList = [];
     }
@@ -27,7 +27,7 @@ class Navbar extends ViewElement {
      * @param {string} value 
      */
     activate(value) {
-        this.div.querySelector(`${value}`).checked = true;
+        this.div.querySelector(`#${value}`).checked = true;
         for(const viewElement of this.#viewElementList) {
             viewElement.activate(value);
         }

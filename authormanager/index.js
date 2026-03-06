@@ -3,6 +3,8 @@
  * @typedef {{id: string, label: string, name: string}} FormFieldType
  */
 
+import { FormController } from "./form.js";
+import { AuthorManager } from "./manager.js";
 import { Navbar } from "./navigationbar.js"
 import { TableView } from "./table.js";
 
@@ -24,7 +26,19 @@ const formFields = [{
 
 const headerArray = ['Szerző', 'Mű', 'Fogalom']
 
+const manager = new AuthorManager();
+manager.addElement({
+    author: "aaa",
+    concept: "bbb",
+    work: "ccc"
+});
 const navbar = new Navbar();
 navbar.appendTo(document.body);
-const table = new TableView('table', headerArray);
+const table = new TableView('table', headerArray, manager);
 table.appendTo(document.body);
+navbar.addViewElement("Táblázat", table);
+const form = new FormController("tableForm");
+form.appendTo(document.body);
+navbar.addViewElement("Form", form)
+navbar.activate("table");
+manager.getAllElement();
