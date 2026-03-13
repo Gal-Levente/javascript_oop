@@ -45,7 +45,6 @@ manager: AuthorManager)
 --
 +constructor(id: string, formFieldList: FormFieldType,
 manager: AuthorManager)
-+tableCallback(): TableCallback
 -createElement(): AuthorType</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>456</x><y>216</y><w>384</w><h>72</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;50;460;50;460;70</additional_attributes></element><element><id>UMLClass</id><coordinates><x>976</x><y>272</y><w>200</w><h>56</h></coordinates><panel_attributes>ImportExport
 --
 -manager: AuthorManager
@@ -79,24 +78,24 @@ m1=0..n</panel_attributes><additional_attributes>190;10;10;10;10;130</additional
 +get concept(): string</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>280</x><y>632</y><w>208</w><h>32</h></coordinates><panel_attributes>lt=&lt;-
 0..*</panel_attributes><additional_attributes>10;20;240;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>400</x><y>464</y><w>136</w><h>48</h></coordinates><panel_attributes>TableCallback
 --
-(authorList: Author[]) void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>472</x><y>504</y><w>152</w><h>104</h></coordinates><panel_attributes>lt=&lt;-
+(authorList: Author[]) void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>472</x><y>504</y><w>144</w><h>104</h></coordinates><panel_attributes>lt=&lt;-
 Meghívja a getAllElementben</panel_attributes><additional_attributes>10;10;10;110</additional_attributes></element><element><id>UMLClass</id><coordinates><x>584</x><y>488</y><w>144</w><h>48</h></coordinates><panel_attributes>AddElementResultCallback
 --
 (massage: string): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>624</x><y>528</y><w>120</w><h>80</h></coordinates><panel_attributes>lt=&lt;-
-Hívja az addElementel</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>Relation</id><coordinates><x>488</x><y>352</y><w>88</w><h>128</h></coordinates><panel_attributes>lt=&lt;.
-Implementálja</panel_attributes><additional_attributes>10;140;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>544</x><y>368</y><w>176</w><h>136</h></coordinates><panel_attributes>lt=&lt;.
+Hívja az addElementel</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>Relation</id><coordinates><x>488</x><y>352</y><w>80</w><h>128</h></coordinates><panel_attributes>lt=&lt;.
+Implementálja</panel_attributes><additional_attributes>10;140;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>552</x><y>368</y><w>168</w><h>136</h></coordinates><panel_attributes>lt=&lt;.
 Implementálja a managerből
-jövő üzenet megjelenítésére</panel_attributes><additional_attributes>80;150;80;30;200;30;200;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1080</x><y>464</y><w>152</w><h>48</h></coordinates><panel_attributes>ImportResultCallback
+jövő üzenet megjelenítésére</panel_attributes><additional_attributes>70;150;70;30;190;30;190;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1080</x><y>464</y><w>152</w><h>48</h></coordinates><panel_attributes>ImportResultCallback
 --
 (massage: string): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>720</x><y>504</y><w>456</w><h>176</h></coordinates><panel_attributes>lt=&lt;-
-Hívja az addElementList</panel_attributes><additional_attributes>550;10;550;200;10;200</additional_attributes></element><element><id>Relation</id><coordinates><x>1152</x><y>320</y><w>152</w><h>160</h></coordinates><panel_attributes>lt=&lt;.
+Hívja az addElementList</panel_attributes><additional_attributes>550;10;550;200;10;200</additional_attributes></element><element><id>Relation</id><coordinates><x>1152</x><y>320</y><w>144</w><h>160</h></coordinates><panel_attributes>lt=&lt;.
 Implementálja a managerből
 jövő üzenet megjelenítésére</panel_attributes><additional_attributes>10;180;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>920</x><y>464</y><w>144</w><h>64</h></coordinates><panel_attributes>AuthorType
 --
 +author: string
 +work: string
-+concept: string</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>944</x><y>368</y><w>64</w><h>112</h></coordinates><panel_attributes>lt=&lt;.
-Előállítja</panel_attributes><additional_attributes>10;120;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1008</x><y>320</y><w>64</w><h>160</h></coordinates><panel_attributes>lt=&lt;.
++concept: string</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>944</x><y>368</y><w>56</w><h>112</h></coordinates><panel_attributes>lt=&lt;.
+Előállítja</panel_attributes><additional_attributes>10;120;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1008</x><y>320</y><w>56</w><h>160</h></coordinates><panel_attributes>lt=&lt;.
 Előállítja</panel_attributes><additional_attributes>10;180;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>720</x><y>520</y><w>288</w><h>120</h></coordinates><panel_attributes>lt=&lt;.
 Átalakítja Author osztállyá</panel_attributes><additional_attributes>340;10;340;130;10;130</additional_attributes></element><element><id>UMLClass</id><coordinates><x>744</x><y>408</y><w>168</w><h>96</h></coordinates><panel_attributes>FormInput
 --

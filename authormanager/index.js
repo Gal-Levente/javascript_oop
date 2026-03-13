@@ -37,7 +37,7 @@ navbar.appendTo(document.body);
 const table = new TableView('table', headerArray, manager);
 table.appendTo(document.body);
 navbar.addViewElement("Táblázat", table);
-const form = new FormController("tableForm");
+const form = new FormController("tableForm", formFields, manager);
 form.appendTo(document.body);
 navbar.addViewElement("Form", form)
 navbar.activate("table");
