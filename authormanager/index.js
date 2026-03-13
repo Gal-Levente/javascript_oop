@@ -27,11 +27,6 @@ const formFields = [{
 const headerArray = ['Szerző', 'Mű', 'Fogalom']
 
 const manager = new AuthorManager();
-manager.addElement({
-    author: "aaa",
-    concept: "bbb",
-    work: "ccc"
-});
 const navbar = new Navbar();
 navbar.appendTo(document.body);
 const table = new TableView('table', headerArray, manager);

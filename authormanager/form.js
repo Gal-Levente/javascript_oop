@@ -30,7 +30,31 @@ class FormController extends ViewElement {
         const button = document.createElement("button");
         button.innerText = "Küldés"
         form.appendChild(button);
+        const resultDiv = document.createElement("div");
+        resultDiv.innerText = "Eredmény"
+        this.div.appendChild(resultDiv);
         this.div.appendChild(form);
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const element = this.#createElement();
+            this.#manager.addElement(element);
+        })
+    }
+    /**
+     * @returns {import("./index.js").AuthorType}
+     */
+    #createElement() {
+        /**
+         * @type {import("./index.js").AuthorType}
+         */
+        let result = {};
+        for(const formFieldInput of this.#formInputList) {
+            if(formFieldInput.validate()) {
+                result[formFieldInput.name] = formFieldInput.value;
+            }
+        }
+        return result;
     }
 }
 
