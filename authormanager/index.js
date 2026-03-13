@@ -36,4 +36,3 @@ const form = new FormController("tableForm", formFields, manager);
 form.appendTo(document.body);
 navbar.addViewElement("Form", form)
 navbar.activate("table");
-manager.getAllElement();
