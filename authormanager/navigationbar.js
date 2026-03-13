@@ -1,5 +1,5 @@
 import { createRadioButton } from "./gomszab.min.js";
-import { ViewElement } from "./viewElement.js";
+import { ViewElement } from "./viewelement.js";
 
 class Navbar extends ViewElement {
     /**@type {ViewElement[]} */
