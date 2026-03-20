@@ -7,7 +7,6 @@ class ImportExport extends ViewElement {
      */
     #manager;
     /**
-     * 
      * @param {string} id 
      * @param {AuthorManager} manager 
      */
@@ -47,6 +46,20 @@ class ImportExport extends ViewElement {
                 this.#manager.addElementList(result);
             }
             reader.readAsText(file, 'UTF-8');
+        })
+
+        const exportButton = document.createElement('button');
+        exportButton.innerText = "Export";
+        this.div.appendChild(exportButton);
+        exportButton.addEventListener('click', (e) => {
+            const a = document.createElement('a');
+            const content = this.#manager.getExportContent();
+            const file = new Blob([content]);
+            const url = URL.createObjectURL(file);
+            a.href = url;
+            a.download = 'export.csv';
+            a.click();
+            URL.revokeObjectURL(a.href);
         })
     }
 }

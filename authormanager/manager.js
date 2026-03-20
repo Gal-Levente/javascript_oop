@@ -57,7 +57,7 @@ class AuthorManager {
             author.name = element.author;
             author.work = element.work;
             author.concept = element.concept;
-            if(validate()) {
+            if(author.validate()) {
                 this.#authorList.push(author);
                 this.#importResultCallback('Sikeres filefeltöltés!');
             } else {
@@ -65,6 +65,16 @@ class AuthorManager {
                 break;
             }
         }
+    }
+    /**
+     * @returns {string}
+     */
+    getExportContent() {
+        const result = [];
+        for(const author of this.#authorList) {
+            result.push(`${author.name};${author.work};${author.concept}`);
+        }
+        return result.join('\n');
     }
     /**
      * @param {TableCallback} value 
@@ -126,7 +136,7 @@ class Author {
      * @returns {boolean}
      */
     validate() {
-        return this.#id != 0 && this.#name && this.#work && this.#concept;
+        return this.#id >= 0 && this.#name && this.#work && this.#concept;
     }
 }
 

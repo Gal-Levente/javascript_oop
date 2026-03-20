@@ -61,7 +61,7 @@ m1=0..n</panel_attributes><additional_attributes>190;10;10;10;10;130</additional
 +getAllElement(): Author[]
 +addElementList(elementList: AuthorType[]): void
 +getExportContent(): string
-(setterek a callbackekhez)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>168</x><y>544</y><w>120</w><h>176</h></coordinates><panel_attributes>Author
+(setterek a callbackekhez)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>168</x><y>544</y><w>120</w><h>184</h></coordinates><panel_attributes>Author
 --
 -id: string
 -name: string
