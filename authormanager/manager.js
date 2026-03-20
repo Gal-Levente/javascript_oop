@@ -6,6 +6,10 @@
  * @callback AddElementResultCallback
  * @param {string} resultMessage
  * @returns {void}
+ * 
+ * @callback ImportResultCallback
+ * @param {string} resultMessage
+ * @returns {void}
  */
 
 class AuthorManager {
@@ -15,6 +19,8 @@ class AuthorManager {
     #tableCallback;
     /**@type {AddElementResultCallback} */
     #addElementResultCallback;
+    /**@type {ImportResultCallback} */
+    #importResultCallback;
     constructor() {
         this.#authorList = [];
     }
@@ -28,8 +34,8 @@ class AuthorManager {
         author.work = element.work;
         author.concept = element.concept;
         if(author.validate()) {
-        this.#authorList.push(author);
-        this.#addElementResultCallback("Sikeres elem felvétel!");
+            this.#authorList.push(author);
+            this.#addElementResultCallback("Sikeres elem felvétel!");
         } else {
             this.#addElementResultCallback("Sikertelen elem felvétel!");
         }
@@ -39,6 +45,26 @@ class AuthorManager {
      */
     getAllElement() {
         this.#tableCallback(this.#authorList);
+    }
+    /**
+     * @param {import(".").AuthorType[]} elementList
+     * @returns {void} 
+     */
+    addElementList(elementList) {
+        for(const element of elementList) {
+            const author = new Author();
+            author.id = this.#authorList.length;
+            author.name = element.author;
+            author.work = element.work;
+            author.concept = element.concept;
+            if(validate()) {
+                this.#authorList.push(author);
+                this.#importResultCallback('Sikeres filefeltöltés!');
+            } else {
+                this.#addElementResultCallback('Sikertelen filefeltöltés!');
+                break;
+            }
+        }
     }
     /**
      * @param {TableCallback} value 
@@ -51,6 +77,12 @@ class AuthorManager {
      */
     set addElementResultCallback(value) {
         this.#addElementResultCallback = value;
+    }
+    /**
+     * @param {ImportResultCallback} value
+     */
+    set importResultCallback(value) {
+        this.#importResultCallback = value;
     }
 }
 

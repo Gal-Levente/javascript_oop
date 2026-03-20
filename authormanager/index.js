@@ -4,6 +4,7 @@
  */
 
 import { FormController } from "./form.js";
+import { ImportExport } from "./importexport.js";
 import { AuthorManager } from "./manager.js";
 import { Navbar } from "./navigationbar.js"
 import { TableView } from "./table.js";
@@ -34,5 +35,8 @@ table.appendTo(document.body);
 navbar.addViewElement("Táblázat", table);
 const form = new FormController("tableForm", formFields, manager);
 form.appendTo(document.body);
-navbar.addViewElement("Form", form)
+const importExport = new ImportExport('importexport', manager);
+importExport.appendTo(document.body);
+navbar.addViewElement("Form", form);
+navbar.addViewElement("Import/Export", importExport);
 navbar.activate("table");
